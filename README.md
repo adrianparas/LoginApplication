@@ -16,8 +16,8 @@ Use the maven wrapper to run maven commands if maven isn't installed on your sys
 
 If you want to install maven, follow this step-by-step guid to do so:  
   
- Windows: https://phoenixnap.com/kb/install-maven-windows  
- Mac: https://www.digitalocean.com/community/tutorials/install-maven-mac-os
+  &nbsp; Windows: https://phoenixnap.com/kb/install-maven-windows  
+  &nbsp; Mac: https://www.digitalocean.com/community/tutorials/install-maven-mac-os
 
 ## Contributing
 
