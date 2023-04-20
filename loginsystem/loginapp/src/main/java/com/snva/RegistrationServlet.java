@@ -41,7 +41,7 @@ public class RegistrationServlet extends HttpServlet {
             Connection connection = DataSourceAccess.getDataSource().getConnection();
             if (userExists(username, connection)) {
                 return "Username already exists!";
-            } 
+            }
             if (!password.equals(passwordConfirm)) {
                 return "Passwords do not match!";
             }
@@ -49,7 +49,7 @@ public class RegistrationServlet extends HttpServlet {
             if (!res.equals("valid")) {
                 return res;
             }
-             
+
             PreparedStatement ps = connection
                     .prepareStatement(
                             "insert into users (name, username, email, password) values (?, ?, ?, ?)");
@@ -87,18 +87,27 @@ public class RegistrationServlet extends HttpServlet {
             return "Password does not follow criteria";
         }
         int upperCount = 0, lowerCount = 0, numCount = 0, specialCount = 0;
-        for(char ch: password.toCharArray()) {
-            if (Character.isAlphabetic(ch) && Character.isLowerCase(ch)) {
-                lowerCount++;
-            } else if (Character.isAlphabetic(ch) && Character.isUpperCase(ch)) {
-                upperCount++;
-            } else if (Character.isDigit(ch)) {
-                numCount++;
-            } else if (!Character.isDigit(ch) && !Character.isLetter(ch)) {
-                specialCount++;
+        for (char ch : password.toCharArray()) {
+            switch (Character.getType(ch)) {
+                case Character.LOWERCASE_LETTER:
+                    lowerCount++;
+                    break;
+                case Character.UPPERCASE_LETTER:
+                    upperCount++;
+                    break;
+                case Character.DECIMAL_DIGIT_NUMBER:
+                    numCount++;
+                    break;
+                case Character.OTHER_PUNCTUATION:
+                case Character.OTHER_SYMBOL:
+                    specialCount++;
+                    break;
             }
+
         }
-        return (upperCount == 0 || lowerCount == 0 || numCount == 0 || specialCount == 0) ? "Password does not follow criteria" : "valid";
+        return (upperCount == 0 || lowerCount == 0 || numCount == 0 || specialCount == 0)
+                ? "Password does not follow all criteria"
+                : "valid";
     }
 
 }

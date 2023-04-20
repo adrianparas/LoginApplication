@@ -10,5 +10,5 @@ public class DataSourceAccess {
         config.setUsername("root");
         config.setPassword("ace#2000");
         return new HikariDataSource(config);
-    }  
+    }
 }
