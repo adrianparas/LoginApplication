@@ -8,15 +8,15 @@
     <welcome-file>register.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
-    <servlet-name>com.snva.DashboardController</servlet-name>
-    <servlet-class>com.snva.DashboardController</servlet-class>
+    <servlet-name>com.snva.AccountController</servlet-name>
+    <servlet-class>com.snva.AccountController</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>com.snva.DashboardController</servlet-name>
+    <servlet-name>com.snva.AccountController</servlet-name>
     <url-pattern>/login</url-pattern>
   </servlet-mapping>
 
-  <servlet>
+   <servlet>
     <servlet-name>com.snva.RegistrationServlet</servlet-name>
     <servlet-class>com.snva.RegistrationServlet</servlet-class>
   </servlet>
@@ -29,12 +29,8 @@
     <servlet-name>com.snva.LogoutServlet</servlet-name>
     <servlet-class>com.snva.LogoutServlet</servlet-class>
   </servlet>
-  
   <servlet-mapping>
     <servlet-name>com.snva.LogoutServlet</servlet-name>
     <url-pattern>/logout</url-pattern>
   </servlet-mapping>
 </web-app>
-
-
-

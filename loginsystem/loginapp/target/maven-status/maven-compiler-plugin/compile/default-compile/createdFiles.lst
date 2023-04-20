@@ -1,7 +1,4 @@
+com\snva\DataSourceAccess.class
 com\snva\LogoutServlet.class
 com\snva\RegistrationServlet.class
-com\snva\Main.class
-com\snva\User.class
-com\snva\UserDAO.class
-com\snva\DashboardController.class
-com\snva\DataSourceAccess.class
+com\snva\AccountController.class
